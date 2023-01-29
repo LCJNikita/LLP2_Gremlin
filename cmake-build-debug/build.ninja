@@ -52,16 +52,30 @@ build cmake_object_order_depends_target_LLP2_Gremlin: phony || CMakeFiles/LLP2_G
 build CMakeFiles/LLP2_Gremlin.dir/main.c.o: C_COMPILER__LLP2_Gremlin_Debug /home/mike/LLP/LLP2_Gremlin/main.c || cmake_object_order_depends_target_LLP2_Gremlin
   DEP_FILE = CMakeFiles/LLP2_Gremlin.dir/main.c.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu11
-  INCLUDES = -I/home/mike/LLP/LLP2_Gremlin/include -I/home/mike/LLP/LLP2_Gremlin/include/stools
+  INCLUDES = -I/home/mike/LLP/LLP2_Gremlin/include -I/home/mike/LLP/LLP2_Gremlin/include/stools -I/home/mike/LLP/LLP2_Gremlin/include/view_tools
   OBJECT_DIR = CMakeFiles/LLP2_Gremlin.dir
   OBJECT_FILE_DIR = CMakeFiles/LLP2_Gremlin.dir
 
 build CMakeFiles/LLP2_Gremlin.dir/src/stools/string_tools.c.o: C_COMPILER__LLP2_Gremlin_Debug /home/mike/LLP/LLP2_Gremlin/src/stools/string_tools.c || cmake_object_order_depends_target_LLP2_Gremlin
   DEP_FILE = CMakeFiles/LLP2_Gremlin.dir/src/stools/string_tools.c.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu11
-  INCLUDES = -I/home/mike/LLP/LLP2_Gremlin/include -I/home/mike/LLP/LLP2_Gremlin/include/stools
+  INCLUDES = -I/home/mike/LLP/LLP2_Gremlin/include -I/home/mike/LLP/LLP2_Gremlin/include/stools -I/home/mike/LLP/LLP2_Gremlin/include/view_tools
   OBJECT_DIR = CMakeFiles/LLP2_Gremlin.dir
   OBJECT_FILE_DIR = CMakeFiles/LLP2_Gremlin.dir/src/stools
+
+build CMakeFiles/LLP2_Gremlin.dir/src/view_tools/parser_pieces.c.o: C_COMPILER__LLP2_Gremlin_Debug /home/mike/LLP/LLP2_Gremlin/src/view_tools/parser_pieces.c || cmake_object_order_depends_target_LLP2_Gremlin
+  DEP_FILE = CMakeFiles/LLP2_Gremlin.dir/src/view_tools/parser_pieces.c.o.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu11
+  INCLUDES = -I/home/mike/LLP/LLP2_Gremlin/include -I/home/mike/LLP/LLP2_Gremlin/include/stools -I/home/mike/LLP/LLP2_Gremlin/include/view_tools
+  OBJECT_DIR = CMakeFiles/LLP2_Gremlin.dir
+  OBJECT_FILE_DIR = CMakeFiles/LLP2_Gremlin.dir/src/view_tools
+
+build CMakeFiles/LLP2_Gremlin.dir/src/view_tools/alloc_view.c.o: C_COMPILER__LLP2_Gremlin_Debug /home/mike/LLP/LLP2_Gremlin/src/view_tools/alloc_view.c || cmake_object_order_depends_target_LLP2_Gremlin
+  DEP_FILE = CMakeFiles/LLP2_Gremlin.dir/src/view_tools/alloc_view.c.o.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu11
+  INCLUDES = -I/home/mike/LLP/LLP2_Gremlin/include -I/home/mike/LLP/LLP2_Gremlin/include/stools -I/home/mike/LLP/LLP2_Gremlin/include/view_tools
+  OBJECT_DIR = CMakeFiles/LLP2_Gremlin.dir
+  OBJECT_FILE_DIR = CMakeFiles/LLP2_Gremlin.dir/src/view_tools
 
 
 # =============================================================================
@@ -71,7 +85,7 @@ build CMakeFiles/LLP2_Gremlin.dir/src/stools/string_tools.c.o: C_COMPILER__LLP2_
 #############################################
 # Link the executable LLP2_Gremlin
 
-build LLP2_Gremlin: C_EXECUTABLE_LINKER__LLP2_Gremlin_Debug CMakeFiles/LLP2_Gremlin.dir/main.c.o CMakeFiles/LLP2_Gremlin.dir/src/stools/string_tools.c.o
+build LLP2_Gremlin: C_EXECUTABLE_LINKER__LLP2_Gremlin_Debug CMakeFiles/LLP2_Gremlin.dir/main.c.o CMakeFiles/LLP2_Gremlin.dir/src/stools/string_tools.c.o CMakeFiles/LLP2_Gremlin.dir/src/view_tools/parser_pieces.c.o CMakeFiles/LLP2_Gremlin.dir/src/view_tools/alloc_view.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/LLP2_Gremlin.dir
   POST_BUILD = :

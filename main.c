@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include "parser_pieces.h"
 
 int main() {
-    printf("Hello, World!\n");
-    return 0;
+    parse_request();
+    printf("seems ok\n");
 }

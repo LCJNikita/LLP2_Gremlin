@@ -2,6 +2,8 @@
 #define LLP2_GREMLIN_STRING_TOOLS_H
 #include <inttypes.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 #define AHASH 54059
 #define BHASH 76963
@@ -16,6 +18,7 @@ enum commands_desc{
     HAS_COMMAND,
     OR_COMMAND,
     NOT_COMMAND,
+    OUT_COMMAND,
     GET_COMMAND,
     REMOVE_COMMAND,
     NEW_COMMAND,
@@ -27,5 +30,7 @@ enum commands_desc{
 
 void init_string_tools();
 uint8_t parse_command(char *command);
+uint8_t is_int(char c);
+uint8_t is_char(char c);
 
 #endif

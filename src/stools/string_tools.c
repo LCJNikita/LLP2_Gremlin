@@ -8,7 +8,7 @@ static uint64_t get_hash(const char *string){
 
 uint8_t parse_command(char *command) {
     uint64_t hash = get_hash(command);
-    for (size_t iter = 0; iter < 6; iter++){
+    for (size_t iter = 0; iter < COMMAND_COUNT; iter++){
         if (commands_hash[iter] == hash) return iter;
     }
     return WRONG_COMMAND;
@@ -26,4 +26,12 @@ void init_string_tools() {
     commands_hash[8] = get_hash("update");
     commands_hash[9] = get_hash("value");
     commands_hash[10] = get_hash("rel");
+}
+
+uint8_t is_char(char c) {
+    return c > 64 && c < 91 || c > 96 && c < 123;
+}
+
+uint8_t is_int(char c) {
+    return c > 47 && c < 58;
 }

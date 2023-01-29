@@ -34,11 +34,15 @@ struct field {
 };
 
 struct entity {
-    struct field *fields[MAX_ARRAY_SIZE];
+    struct field fields[MAX_ARRAY_SIZE];
+    uint64_t rel[MAX_ARRAY_SIZE];
     uint8_t fields_count;
+    uint8_t rel_count;
 };
 
 struct condition {
+    uint8_t is_id;
+    uint64_t id;
     enum condition_code op;
     char field_name[MAX_NAME_SIZE];
     union field_types field_value;
@@ -47,6 +51,7 @@ struct condition {
 
 struct filter_list {
     uint8_t negative;
+    struct condition *condition;
     struct filter_list *next;
 };
 
