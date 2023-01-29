@@ -3,8 +3,8 @@
 #include "alloc_view.h"
 #define REQUEST_SIZE 1024
 
-static uint64_t  parse_int(uint64_t *pointer, char *string) {
-    uint64_t result = 0;
+static int64_t  parse_int(uint64_t *pointer, char *string) {
+    int64_t result = 0;
     while(is_int(string[*pointer])) {
         result = result * 10 + (string[*pointer] - '0');
         (*pointer)++;
@@ -75,7 +75,7 @@ uint8_t parse_operator(uint64_t *pointer, struct view *view, char *string) {
     struct filter_list *filter;
     create_filter(&filter);
     enum commands_desc command = parse_command(str);
-    uint64_t id;
+    int64_t id;
     char *name, *value;
     enum condition_code code;
     switch (command) {
@@ -94,10 +94,12 @@ uint8_t parse_operator(uint64_t *pointer, struct view *view, char *string) {
                 (*pointer)++;
                 value = parse_string(pointer, string);
                 strcpy(condition->field_value.string, value);
+                condition->type = STRING_TYPE;
                 if (string[*pointer] == '"') (*pointer)++;
                 else return WRONG_COMMAND;
             } else {
                 id = parse_int(pointer, string);
+                condition->type = INTEGER_TYPE;
                 condition->field_value.integer = id;
             }
             if (string[*pointer] != ',') return WRONG_COMMAND;
@@ -115,11 +117,13 @@ uint8_t parse_operator(uint64_t *pointer, struct view *view, char *string) {
                 (*pointer)++;
                 value = parse_string(pointer, string);
                 strcpy(view->entity->fields[view->entity->fields_count].value.string, value);
+                view->entity->fields[view->entity->fields_count].type = STRING_TYPE;
                 if (string[*pointer] == '"') (*pointer)++;
                 else return WRONG_COMMAND;
             } else {
                 id = parse_int(pointer, string);
                 view->entity->fields[view->entity->fields_count].value.integer = id;
+                view->entity->fields[view->entity->fields_count].type = INTEGER_TYPE;
             }
             view->entity->fields_count++;
             break;

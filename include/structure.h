@@ -21,6 +21,13 @@ enum condition_code {
     OP_SUBSTR,
 };
 
+enum types {
+    STRING_TYPE = 0,
+    INTEGER_TYPE,
+    REAL_TYPE,
+    BOOLEAN_TYPE
+};
+
 union field_types{
     char string[MAX_NAME_SIZE];
     int64_t integer;
@@ -29,6 +36,7 @@ union field_types{
 };
 
 struct field {
+    uint8_t type;
     char name[MAX_NAME_SIZE];
     union field_types value;
 };
@@ -43,6 +51,7 @@ struct entity {
 struct condition {
     uint8_t is_id;
     uint64_t id;
+    uint8_t type;
     enum condition_code op;
     char field_name[MAX_NAME_SIZE];
     union field_types field_value;
